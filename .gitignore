@@ -1,0 +1,9 @@
+*.pyc
+.idea/
+.autoenv*
+dist/
+arduinobuilderer.egg-info/
+.cache/
+.tox/
+.coverage
+.coverage.*

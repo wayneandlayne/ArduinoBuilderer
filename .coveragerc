@@ -1,0 +1,13 @@
+[run]
+branch = True
+source =
+    arduinobuilderer
+
+[paths]
+source =
+   .tox/*/lib/python*/site-packages/arduinobuilderer
+   /tmp/tox-jenkins/todoistminder/py35/lib/python3.5/site-packages/arduinobuilderer
+   src/arduinobuilderer/
+
+[report]
+show_missing = True

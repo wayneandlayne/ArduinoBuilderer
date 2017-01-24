@@ -1,0 +1,5 @@
+check-manifest
+coverage
+pytest
+pytest-cov
+tox
