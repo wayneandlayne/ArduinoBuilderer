@@ -52,7 +52,7 @@ def run(sketch, board, arduino_path, core_path):
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(description='Process some integers.')
+    parser = argparse.ArgumentParser()
     parser.add_argument('--boards-file',
                         help='path to boards.txt')
     parser.add_argument('--core-name',
@@ -375,46 +375,6 @@ Output: <br />
   </body>
 </html>
 """)
-
-blah = """
-
-
-Number of sketches tested: {{ results_by_sketch|length }}
-Number of boards tested: {{ results_by_board|length }}
-Total number of compiles: {{ num_compiles }}
-Total number of successful compiles: {{ num_success }}
-Total number of failed compiles: {{ num_failure }}
-
-Sketch Summary
-
-
-Board Summary
-{% for board_name in results_by_board %}
-Board {{ board_name }}
-Number of successful compiles: {{ results_by_board[board_name].get_successes()|length }}
-Number of failed compiles: {{ results_by_board[board_name].get_failures()|length }}
-{% if results_by_board[board_name].get_successes() -%}
-Successes:
-{% for result in results_by_board[board_name].get_successes() -%}
-{{ result.sketch }}
-{%- endfor %}
-{%- endif %}
-{% if results_by_board[board_name].get_failures() -%}
-Failures:
-{% for result in results_by_board[board_name].get_failures() -%}
-{{ result.sketch }}
-{%- endfor %}
-{%- endif %}
-{% endfor %}
-
-All Results
-{% for result in all_results.results %}
-Sketch: {{ result.sketch }}
-Board: {{ result.board }}
-Status: {% if result.returncode == 0 %}pass{% else %}FAIL (Return code: {{result.returncode}}){% endif %}
-Output: {{ result.output }}
-{% endfor %}
-"""
 
 
 def process_output(results, template):
