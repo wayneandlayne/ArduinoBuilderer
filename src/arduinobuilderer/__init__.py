@@ -367,7 +367,7 @@ Sketch: {{ result.sketch }}<br />
 Board: {{ result.board }}<br />
 Status: {% if result.returncode == 0 %}pass{% else %}FAIL (Return code: {{result.returncode}}){% endif %}<br />
 Output: <br />
-<pre>{{ result.output }}</pre>
+<pre>{{ result.output.decode('utf-8') }}</pre>
 <hr />
 {% endfor %}
 
