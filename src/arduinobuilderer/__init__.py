@@ -74,6 +74,10 @@ def parse_args():
                         default=[],
                         nargs="*",
                         help="space delimited paths to ino files", )
+    parser.add_argument('-n', '--processes',
+                        default=1,
+                        type=int,
+                        help="number of compiles to run at a time", )
     parser.add_argument('--output',
                         required=True,
                         help="output file")
@@ -137,7 +141,7 @@ def main():
     for sketch in args.sketches:
         logger.info("\t{0}".format(sketch))
 
-    pool = multiprocessing.Pool(processes=1)  # sigh, what isn't safe here?
+    pool = multiprocessing.Pool(processes=args.processes)
 
     start_time = time.time()
 
