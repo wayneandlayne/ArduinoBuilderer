@@ -187,7 +187,7 @@ Total number of successful compiles: {{ num_success }}
 Total number of failed compiles: {{ num_failure }}
 
 Sketch Summary
-{% for sketch_name in results_by_sketch %}
+{% for sketch_name in sorted(results_by_sketch) %}
 Sketch {{ sketch_name }}
 Number of successful compiles: {{ results_by_sketch[sketch_name].get_successes()|length }}
 Number of failed compiles: {{ results_by_sketch[sketch_name].get_failures()|length }}
